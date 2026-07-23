@@ -1,0 +1,120 @@
+.alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 600; 
+}
+
+.alert-modal {
+  background: var(--modal);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 24px;
+  width: 380px;
+  max-width: 92vw;
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(30px);
+  color: var(--text);
+  animation: alertScaleUp 0.15s ease-out;
+}
+
+.alert-modal h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.alert-modal.is-danger h3 {
+  color: #f87171;
+}
+
+.alert-modal.is-danger .alert-bs {
+  background: #c0392b;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(192, 57, 43, 0.4);
+}
+
+.alert-modal.is-danger .alert-bs:hover {
+  background: #e74c3c;
+}
+
+.alert-modal.is-success h3 {
+  color: var(--green);
+}
+
+.alert-modal.is-success .alert-bs {
+  background: var(--green);
+  color: #0a1200; 
+  box-shadow: 0 0 12px rgba(109, 255, 74, 0.3);
+}
+
+.alert-modal.is-success .alert-bs:hover {
+  background: #85ff66;
+}
+
+.alert-icon-badge {
+  font-size: 18px;
+}
+
+.alert-message {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.alert-btn-row {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.alert-bc {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-dim);
+  transition: all 0.2s;
+}
+
+.alert-bc:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+.alert-bs {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.alert-bs:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes alertScaleUp {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

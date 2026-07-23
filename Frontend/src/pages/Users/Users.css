@@ -1,0 +1,164 @@
+.users-page {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 28px;
+}
+
+.users-header h1 {
+    margin: 0;
+    color: var(--text);
+    font-size: 24px;
+}
+
+.users-header span {
+    color: var(--text-dim);
+    font-size: 13px;
+}
+
+.users-list {
+    overflow: hidden;
+}
+
+/* Ajustado de 3 para 4 colunas */
+.users-row {
+    display: grid;
+    grid-template-columns: 2fr 2.5fr 140px 80px;
+    align-items: center;
+    min-height: 52px;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.users-row:last-child {
+    border-bottom: none;
+}
+
+.users-row-header {
+    background: rgba(255, 255, 255, .04);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
+
+.user-name {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-you {
+    color: var(--text-dim);
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 4px;
+}
+
+.user-email {
+    color: var(--text-dim);
+    font-size: 13px;
+}
+
+.user-admin {
+    display: flex;
+    justify-content: center;
+}
+
+.user-admin input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--green);
+    cursor: pointer;
+}
+
+.user-admin input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.user-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .03);
+    color: var(--text-dim);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease;
+    font-size: 14px;
+}
+
+.delete-btn:hover:not(:disabled) {
+    background: rgba(255, 74, 74, .12);
+    border-color: rgba(255, 74, 74, .3);
+    color: #ff4a4a;
+}
+
+.delete-btn:active:not(:disabled) {
+    transform: scale(.95);
+}
+
+.delete-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.users-row:not(.users-row-header):hover {
+    background: rgba(255, 255, 255, .035);
+    transition: .2s;
+}
+
+.users-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.users-empty {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+.back-btn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .06);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    font-size: 18px;
+}
+
+.back-btn:hover {
+    background: rgba(109, 255, 74, .12);
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.back-btn:active {
+    transform: scale(.97);
+}

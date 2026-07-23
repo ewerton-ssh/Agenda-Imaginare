@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  color-scheme: dark;
+  --green: #6dff4a;
+  --green-strong: #85ff66;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --text: #f0f0f0;
+  --text-dim: rgba(255, 255, 255, 0.5);
+  --text-addlnk: rgba(255, 255, 255, 0.25);
+  --text-wcard: #fff;
+  --text-chart-title: rgba(255, 255, 255, 0.85);
+  --text-chart-canvas: rgba(255,255,255,0.4);
+  --bg: #0a0a0f;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-strong: rgba(255, 255, 255, 0.06);
+  --surface-contrast: rgba(255, 255, 255, 0.08);
+  --surface-muted: rgba(5, 8, 12, 0.35);
+  --shadow: rgba(0, 0, 0, 0.35);
+  --input-bg: rgba(255, 255, 255, 0.07);
+  --input-text: #ffffff;
+  --input-placeholder: rgba(255, 255, 255, 0.3);
+  --panel-bg: linear-gradient(135deg, rgba(10, 15, 30, 0.85) 0%, rgba(5, 10, 20, 0.9) 100%);
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --bg-blob-a: rgba(109, 255, 74, 0.07);
+  --bg-blob-b: rgba(59, 130, 246, 0.07);
+  --bg-blob-c: rgba(139, 92, 246, 0.05);
+  --font: 'Inter', system-ui, sans-serif;
+  --modal: rgba(20, 22, 35, 0.97);
+  --modal-h3: #fff ; 
+  --select-bg: #1a1a2a;
+  --fr-placeholder: rgba(255, 255, 255, 0.3);
+  --bg-hover: rgb(56, 56, 56);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --green: #2de000;
+  --green-strong: #85ff66;
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(15, 23, 42, 0.12);
+  --text: #111827;
+  --text-dim: rgba(17, 24, 39, 0.66);
+  --text-addlnk: rgba(0, 0, 0, 0.479);
+  --text-wcard: #000;
+  --text-chart-title: rgba(0, 0, 0, 0.85);
+  --text-chart-canvas: rgba(0, 0, 0, 0.4);
+  --bg: #eef4fb;
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --surface-contrast: rgba(15, 23, 42, 0.06);
+  --surface-muted: rgba(15, 23, 42, 0.04);
+  --shadow: rgba(15, 23, 42, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-text: #111827;
+  --input-placeholder: rgba(15, 23, 42, 0.4);
+  --panel-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 245, 255, 0.95) 100%);
+  --overlay-bg: rgba(15, 23, 42, 0.35);
+  --bg-blob-a: rgba(47, 143, 77, 0.1);
+  --bg-blob-b: rgba(59, 130, 246, 0.08);
+  --bg-blob-c: rgba(147, 197, 253, 0.12);
+  --modal: #EBF3FB;
+  --modal-h3: #000 ;
+  --select-bg: #EEF4FB;
+  --fr-placeholder: rgba(12, 7, 7, 0.479);
+  --bg-hover: rgb(191, 255, 166);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 10%, var(--bg-blob-a) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, var(--bg-blob-b) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, var(--bg-blob-c) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+#root {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  color: inherit;
+}
+
+.outside {
+  max-width: 1320px;
+  margin: 16px auto 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

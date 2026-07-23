@@ -1,0 +1,27 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.fb {
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 4px 13px;
+  cursor: pointer;
+  font-size: 11px;
+  background: var(--surface-contrast);
+  color: var(--text-dim);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.fb:hover {
+  background: var(--surface-strong);
+  color: var(--text);
+}
+.fb.on {
+  background: var(--green);
+  color: #0a1200;
+  border-color: var(--green);
+  font-weight: 700;
+}

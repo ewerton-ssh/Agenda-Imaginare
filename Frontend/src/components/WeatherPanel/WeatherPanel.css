@@ -1,0 +1,381 @@
+.weather-panel {
+
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.weather-panel::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  width: 60%;
+  height: 160%;
+  background: radial-gradient(ellipse,
+      rgba(109, 255, 74, 0.04) 0%,
+      transparent 70%);
+  pointer-events: none;
+}
+
+.weather-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.wcard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(105, 105, 105, 0.07);
+  border-radius: 10px;
+  padding: 8px 5px;
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s,
+    border-color 0.2s;
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+}
+
+.wcard:hover {
+  transform: translateY(-4px) scale(1.03);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(109, 255, 74, 0.2);
+}
+
+.wcard .wday {
+  font-size: 9px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.wcard .wtemp {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-wcard);
+  line-height: 1;
+}
+
+.wcard .wmin {
+  font-size: 9px;
+  color: var(--green);
+  margin-top: 1px;
+  font-weight: 600;
+}
+
+.wcard .wdesc {
+  font-size: 8px;
+  color: var(--text-dim);
+  margin-top: 3px;
+  opacity: 0.7;
+}
+
+.w-scene {
+  height: 40px;
+  position: relative;
+  width: 56px;
+  height: 52px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 3px;
+}
+
+.sun {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe566, #ffb300);
+  position: relative;
+  animation: spin 8s linear infinite, sunpulse 3s ease-in-out infinite;
+}
+
+.sun-ray {
+  position: absolute;
+  width: 3px;
+  height: 8px;
+  background: linear-gradient(#ffe566, transparent);
+  border-radius: 2px;
+  left: 50%;
+  transform-origin: 50% 200%;
+  top: -4px;
+  margin-left: -1.5px;
+}
+
+.sun-sm {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffe566, #ffb300);
+  animation: spin 10s linear infinite, sunpulse 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 180, 0, .5);
+  z-index: 1;
+}
+
+.cloud-main {
+  width: 28px;
+  height: 17px;
+  background: rgba(200, 215, 255, 0.85);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  z-index: 2;
+  animation: cloudfloat 4s ease-in-out infinite;
+}
+
+.cloud-main::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: rgba(200, 215, 255, 0.85);
+  border-radius: 50%;
+  top: -6px;
+  left: 5px;
+}
+
+.cloud-main::after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: rgba(200, 215, 255, 0.85);
+  border-radius: 50%;
+  top: -4px;
+  right: 4px;
+}
+
+.cloud-big {
+  width: 36px;
+  height: 20px;
+  background: rgba(160, 175, 200, 0.7);
+  border-radius: 11px;
+  position: relative;
+  animation: cloudfloat 5s ease-in-out infinite;
+}
+
+.cloud-big::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: rgba(160, 175, 200, 0.7);
+  border-radius: 50%;
+  top: -8px;
+  left: 6px;
+}
+
+.cloud-big::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background: rgba(160, 175, 200, 0.7);
+  border-radius: 50%;
+  top: -6px;
+  right: 6px;
+}
+
+.rain-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+.rain-cloud {
+  width: 32px;
+  height: 16px;
+  background: rgba(120, 140, 180, 0.8);
+  border-radius: 10px;
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  animation: cloudfloat 4s ease-in-out infinite;
+}
+
+.rain-cloud::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: rgba(120, 140, 180, 0.8);
+  border-radius: 50%;
+  top: -6px;
+  left: 4px;
+}
+
+.rain-cloud::after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: rgba(120, 140, 180, 0.8);
+  border-radius: 50%;
+  top: -5px;
+  right: 4px;
+}
+
+.drop {
+  position: absolute;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(rgba(100, 160, 255, 0.9),
+      rgba(100, 160, 255, 0.1));
+  animation: fall linear infinite;
+}
+
+.bolt {
+  position: absolute;
+  font-size: 14px;
+  animation: boltflash 2s ease-in-out infinite;
+}
+
+.fog-line {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(200, 210, 230, 0.6),
+      transparent);
+  margin: 3px 0;
+  animation: fogslide 3s ease-in-out infinite;
+}
+
+.fog-line:nth-child(2) {
+  animation-delay: 0.5s;
+  width: 80%;
+}
+
+.fog-line:nth-child(3) {
+  animation-delay: 1s;
+  width: 60%;
+}
+
+.flake {
+  position: absolute;
+  font-size: 10px;
+  animation: snowfall linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sunpulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 6px 2px rgba(255, 200, 0, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 14px 5px rgba(255, 200, 0, 0.7);
+  }
+}
+
+@keyframes cloudfloat {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+@keyframes boltflash {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fogslide {
+
+  0%,
+  100% {
+    transform: translateX(-4px);
+  }
+
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-4px) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(28px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.weather-src {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.15);
+  margin-top: 8px;
+  text-align: right;
+  letter-spacing: 0.03em;
+}

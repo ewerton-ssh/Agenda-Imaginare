@@ -1,0 +1,58 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.sc {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 13px 16px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.sc:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.sc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+.sc.ag::before {
+  background: linear-gradient(90deg, #1a6fc4, #60a5fa);
+}
+.sc.co::before {
+  background: linear-gradient(90deg, #0a8c5a, var(--green));
+}
+.sc.at::before {
+  background: linear-gradient(90deg, #c0392b, #f87171);
+}
+.sc-n {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+.sc-l {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.sc-n.bl {
+  color: #60a5fa;
+}
+.sc-n.gr {
+  color: var(--green);
+}
+.sc-n.rd {
+  color: #f87171;
+}

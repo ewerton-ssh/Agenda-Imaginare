@@ -68,7 +68,7 @@ export default function ChartsPanel({ services }: ChartsPanelProps) {
     const todayIso = isoToday()
 
     const agendados = services.filter(
-      (service) => !service.done && service.start >= todayIso
+      (service) => !service.done && service.end >= todayIso
     ).length
 
     const concluidos = services.filter(

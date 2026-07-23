@@ -262,7 +262,7 @@ export default function WeatherPanel({ data, error }: WeatherPanelProps) {
       </div>
 
       <div className="weather-src">
-        Open-Meteo.com • Cascavel/PR • Previsão para até 3 semanas
+        Open-Meteo.com • Cascavel/PR • Previsão para até 2 semanas a partir de hoje
       </div>
     </div>
   )

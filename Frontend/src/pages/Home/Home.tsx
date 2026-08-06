@@ -35,27 +35,36 @@ const MESES = [
   'Novembro',
   'Dezembro',
 ]
+
 const TIPOS: Record<ServiceType, string> = {
   Adesivo: 't-adesivo',
-  Fachada: 't-fachada',
-  Automativo: 't-envelo',
-  ACM: 't-acm',
+  Automativo: 't-automativo',
+  'Fachada de ACM': 't-fachada-de-acm',
+  'Letra caixa/acrilico': 't-letra-caixa-acrilico',
+  'Lona c/ Ilhos': 't-lona-c-ilhos',
+  'Painel de lona': 't-painel-de-lona',
   Outro: 't-outro',
 }
+
 const FILTER_TYPES: FilterType[] = [
   'Todos',
-  'Fachada',
-  'Automativo',
-  'ACM',
   'Adesivo',
+  'Automativo',
+  'Fachada de ACM',
+  'Letra caixa/acrilico',
+  'Lona c/ Ilhos',
+  'Painel de lona',
   'Outro',
 ]
+
 const FILTER_LABELS: Record<FilterType, string> = {
   Todos: 'Todos',
-  Fachada: 'Fachada',
-  Automativo: 'Automotivo',
-  ACM: 'ACM',
   Adesivo: 'Adesivo',
+  Automativo: 'Automotivo',
+  'Fachada de ACM': 'Fachada de ACM',
+  'Letra caixa/acrilico': 'Letra Caixa / Acrílico',
+  'Lona c/ Ilhos': 'Lona c/ Ilhós',
+  'Painel de lona': 'Painel de Lona',
   Outro: 'Outro',
 }
 

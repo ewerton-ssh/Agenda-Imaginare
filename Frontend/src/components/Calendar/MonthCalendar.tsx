@@ -3,11 +3,13 @@ import type { Service, ServiceType } from '../../types'
 import { GoGear } from 'react-icons/go'
 
 const BORDER_COLOR_BY_CLASS: Record<string, string> = {
-  't-adesivo': '#1f82fc',
-  't-fachada': '#FFFF00',
-  't-envelo': '#FF8000',
-  't-acm': '#c084fc',
-  't-outro': '#94a3b8',
+  't-adesivo': '#3b82f6',              
+  't-automativo': '#f97316',           
+  't-fachada-de-acm': '#a855f7',       
+  't-letra-caixa-acrilico': '#ec4899', 
+  't-lona-c-ilhos': '#eab308',         
+  't-painel-de-lona': '#10b981',       
+  't-outro': '#94a3b8',                
 }
 
 interface MonthCell {

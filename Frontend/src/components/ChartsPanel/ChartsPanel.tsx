@@ -15,13 +15,24 @@ const STATUS_COLORS = [
 ]
 const STATUS_BORDER = ['#60a5fa', '#4ade80', '#f87171']
 
-const TYPE_LABELS = ['Adesivo', 'Fachada', 'Automotivo', 'ACM', 'Outro']
+const TYPE_LABELS = [
+  'Adesivo',
+  'Automativo',
+  'Fachada de ACM',
+  'Letra caixa/acrilico',
+  'Lona c/ Ilhos',
+  'Painel de lona',
+  'Outro',
+]
+
 const TYPE_COLORS = [
-  '#1f82fc',
-  '#FFFF00',
-  '#FF8000',
-  '#c084fc',
-  '#94a3b8',
+  '#3b82f6',
+  '#f97316',
+  '#a855f7',
+  '#ec4899',
+  '#eab308',
+  '#10b981',
+  '#94a3b8', 
 ]
 
 const cssVar = (name: string) =>
@@ -158,12 +169,9 @@ export default function ChartsPanel({ services }: ChartsPanelProps) {
     }
 
     if (typeCanvas.current) {
+      // Contagem direta sem checagens extras
       const counts = TYPE_LABELS.map((label) =>
-        services.filter(
-          (service) =>
-            service.t ===
-            (label === 'Automotivo' ? 'Automativo' : label)
-        ).length
+        services.filter((service) => service.t === label).length
       )
 
       typeChart.current = new Chart(typeCanvas.current, {

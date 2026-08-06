@@ -2,7 +2,19 @@ const mongoose = require('mongoose');
 
 const serviceSchema = new mongoose.Schema({
   client: { type: String, required: true, trim: true },
-  type: { type: String, required: true, enum: ['Adesivo', 'Fachada', 'Automativo', 'ACM', 'Outro'] },
+  type: { 
+    type: String, 
+    required: true, 
+    enum: [
+      'Adesivo', 
+      'Automativo', 
+      'Fachada de ACM', 
+      'Letra caixa/acrilico', 
+      'Lona c/ Ilhos', 
+      'Painel de lona', 
+      'Outro'
+    ] 
+  },
   description: { type: String, default: '', trim: true },
   collaborator: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   start: { type: Date, required: true },

@@ -2,11 +2,13 @@ import { useUsers } from '../../context/users'
 import './Legend.css'
 
 const SERVICE_CATEGORIES = [
-  { label: 'Adesivo', color: '#60a5fa' },
-  { label: 'Fachada', color: '#FFFF00' },
-  { label: 'Automotivo', color: '#FF8000' },
-  { label: 'ACM', color: '#c084fc' },
-  { label: 'Outro', color: '#94a3b8' },
+  { label: 'Adesivo', color: '#3b82f6' },              
+  { label: 'Automativo', color: '#f97316' },           
+  { label: 'Fachada de ACM', color: '#a855f7' },       
+  { label: 'Letra caixa/acrilico', color: '#ec4899' }, 
+  { label: 'Lona c/ Ilhos', color: '#eab308' },        
+  { label: 'Painel de lona', color: '#10b981' },       
+  { label: 'Outro', color: '#94a3b8' },               
 ]
 
 interface LegendProps {

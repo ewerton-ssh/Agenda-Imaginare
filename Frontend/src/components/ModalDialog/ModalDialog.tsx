@@ -171,9 +171,11 @@ export default function ModalDialog({
             >
               <option value="">Selecione um tipo</option>
               <option value="Adesivo">Adesivo</option>
-              <option value="Fachada">Fachada</option>
               <option value="Automativo">Automotivo</option>
-              <option value="ACM">Fachada de ACM</option>
+              <option value="Fachada de ACM">Fachada de ACM</option>
+              <option value="Letra caixa/acrilico">Letra caixa/acrilico</option>
+              <option value="Lona c/ Ilhos">Lona c/ Ilhos</option>
+              <option value="Painel de lona">Painel de lona</option>
               <option value="Outro">Outro</option>
             </select>
           </div>
@@ -189,7 +191,7 @@ export default function ModalDialog({
           </div>
 
           <div className="fr">
-            <label>Foto / Print *</label>
+            <label>Foto / Print (opcional)</label>
             <input
               ref={fileInputRef}
               type="file"

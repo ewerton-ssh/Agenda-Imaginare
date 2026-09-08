@@ -1,8 +1,10 @@
 export type ServiceType =
   | 'Adesivo'
-  | 'Fachada'
   | 'Automativo'
-  | 'ACM'
+  | 'Fachada de ACM'
+  | 'Letra caixa/acrilico'
+  | 'Lona c/ Ilhos'
+  | 'Painel de lona'
   | 'Outro'
 
 export type FilterType = ServiceType | 'Todos'

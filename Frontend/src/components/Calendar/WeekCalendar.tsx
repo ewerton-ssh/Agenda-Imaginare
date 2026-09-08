@@ -4,18 +4,22 @@ import { GoGear } from 'react-icons/go'
 import { ServicePreviewTooltip } from '../ServicePreviewTooltip/ServicePreviewTooltip'
 
 const BORDER_COLOR_BY_CLASS: Record<string, string> = {
-  't-adesivo': '#1f82fc',
-  't-fachada': '#FFFF00',
-  't-envelo': '#FF8000',
-  't-acm': '#c084fc',
-  't-outro': '#94a3b8',
+  't-adesivo': '#3b82f6',              
+  't-automativo': '#f97316',           
+  't-fachada-de-acm': '#a855f7',       
+  't-letra-caixa-acrilico': '#ec4899', 
+  't-lona-c-ilhos': '#eab308',         
+  't-painel-de-lona': '#10b981',       
+  't-outro': '#94a3b8',               
 }
 
 const BG_COLOR_BY_CLASS: Record<string, string> = {
-  't-adesivo': 'rgba(31, 130, 252, 0.18)',
-  't-fachada': 'rgba(241, 245, 0, 0.18)',
-  't-envelo': 'rgba(251, 183, 36, 0.18)',
-  't-acm': 'rgba(192, 132, 252, 0.18)',
+  't-adesivo': 'rgba(59, 130, 246, 0.18)',
+  't-automativo': 'rgba(249, 115, 22, 0.18)',
+  't-fachada-de-acm': 'rgba(168, 85, 247, 0.18)',
+  't-letra-caixa-acrilico': 'rgba(236, 72, 153, 0.18)',
+  't-lona-c-ilhos': 'rgba(234, 179, 8, 0.18)',
+  't-painel-de-lona': 'rgba(16, 185, 129, 0.18)',
   't-outro': 'rgba(148, 163, 184, 0.18)',
 }
 

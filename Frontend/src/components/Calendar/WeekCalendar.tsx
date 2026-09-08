@@ -24,6 +24,7 @@ interface WeekCalendarProps {
   services: Service[]
   onAdd: (date: string, id: string | null) => void
   onEdit: (date: string, id: string | null) => void
+  onMove: (id: string, targetDate: string) => Promise<void>
   todayIso: string
   tipClasses: Record<ServiceType, string>
   collaborators: Record<string, string>
@@ -41,6 +42,7 @@ export default function WeekCalendar({
   services,
   onAdd,
   onEdit,
+  onMove,
   todayIso,
   tipClasses,
   collaborators,
@@ -92,7 +94,38 @@ export default function WeekCalendar({
             .sort((a, b) => b.span - a.span)
 
           return (
-            <div key={weekIdx} className="week-row">
+            <div
+              key={weekIdx}
+              className="week-row"
+              onDragOver={(event) => event.preventDefault()}
+              onDrop={(event) => {
+                event.preventDefault()
+                const dragData = event.dataTransfer.getData(
+                  'application/x-agenda-service'
+                )
+                const { serviceId, offsetColumns = 0 } = dragData
+                  ? JSON.parse(dragData) as {
+                    serviceId: string
+                    offsetColumns?: number
+                  }
+                  : {
+                    serviceId: event.dataTransfer.getData('text/plain'),
+                  }
+                if (!serviceId) return
+
+                const rowBounds = event.currentTarget.getBoundingClientRect()
+                const columnWidth = rowBounds.width / weekDates.length
+                const pointerColumn = Math.min(
+                  weekDates.length - 1,
+                  Math.max(0, Math.floor((event.clientX - rowBounds.left) / columnWidth))
+                )
+                const targetColumn = Math.min(
+                  weekDates.length - 1,
+                  Math.max(0, pointerColumn - offsetColumns)
+                )
+                void onMove(serviceId, iso(weekDates[targetColumn]))
+              }}
+            >
               <div className="week-grid-cells">
                 {weekDates.map((date) => {
                   const dateKey = iso(date)
@@ -120,7 +153,7 @@ export default function WeekCalendar({
               </div>
 
               <div className="week-grid-events">
-                {weekServices.map(({ service, startDateIso, startCol, endCol }) => {
+                {weekServices.map(({ service, startDateIso, startCol, endCol, span }) => {
                   const isAtrasado =
                     !service.done &&
                     Boolean(service.end && service.end.substring(0, 10) < todayIso)
@@ -149,6 +182,21 @@ export default function WeekCalendar({
                         key={service._id}
                         className={`svc-wrap ${borderClass}`}
                         style={{ gridColumn: `${startCol} / ${endCol}` }}
+                        draggable
+                        onDragStart={(event) => {
+                          const bounds = event.currentTarget.getBoundingClientRect()
+                          const columnWidth = bounds.width / span
+                          const offsetColumns = Math.min(
+                            span - 1,
+                            Math.max(0, Math.floor((event.clientX - bounds.left) / columnWidth))
+                          )
+                          event.dataTransfer.setData(
+                            'application/x-agenda-service',
+                            JSON.stringify({ serviceId: service._id, offsetColumns })
+                          )
+                          event.dataTransfer.setData('text/plain', service._id)
+                          event.dataTransfer.effectAllowed = 'move'
+                        }}
                       >
                         <div
                           className={`svc${service.done ? ' concluido' : ''}${isAtrasado ? ' atrasado-card' : ''

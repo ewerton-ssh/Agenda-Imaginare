@@ -144,7 +144,7 @@ function buildMonthCells(base: Date) {
 }
 
 export default function Home() {
-  const { services } = useServices()
+  const { services, updateService } = useServices()
   const { users } = useUsers()
   const [viewMode, setViewMode] = useState<ViewMode>('week')
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -318,6 +318,31 @@ export default function Home() {
 
   const clearSearch = () => setSearchQuery('')
 
+  const moveService = async (serviceId: string, targetDate: string) => {
+    const service = services.find((item) => item._id === serviceId)
+    if (!service) return
+
+    const sourceDate = service.start.substring(0, 10)
+    const source = new Date(`${sourceDate}T12:00:00`)
+    const target = new Date(`${targetDate}T12:00:00`)
+    const dayOffset = Math.round(
+      (target.getTime() - source.getTime()) / 86400000
+    )
+
+    if (dayOffset === 0) return
+
+    const shiftDateTime = (value: string) => {
+      const date = new Date(`${value.substring(0, 10)}T12:00:00`)
+      date.setDate(date.getDate() + dayOffset)
+      return `${iso(date)}${value.substring(10)}`
+    }
+
+    await updateService(serviceId, {
+      start: shiftDateTime(service.start),
+      end: shiftDateTime(service.end),
+    })
+  }
+
   const jumpToWeekOf = (dateKey: string) => {
     const target = new Date(`${dateKey}T12:00:00`)
     const startOfCurrentWeek = new Date(today)
@@ -434,6 +459,7 @@ export default function Home() {
               services={searchedServices}
               onAdd={openModal}
               onEdit={openModal}
+              onMove={moveService}
               todayIso={todayIso}
               tipClasses={TIPOS}
               collaborators={COL_COLORS}

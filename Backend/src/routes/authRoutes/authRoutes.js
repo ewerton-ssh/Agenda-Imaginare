@@ -18,22 +18,6 @@ const loginLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-const forgotPasswordLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 5,
-  message: "Muitas solicitações de recuperação. Tente novamente em alguns minutos.",
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-
-const resetPasswordLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 5,
-  message: "Muitas tentativas de validação do código.",
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-
 const registerLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 5,

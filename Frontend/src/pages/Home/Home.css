@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.wrap,
+.main-content,
+.view-container {
+  width: 100%;
+}
+
+.view-container {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
 :root {
   color-scheme: dark;
   --green: #6dff4a;
@@ -123,5 +134,17 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  #root,
+  .outside {
+    width: 100%;
   }
 }

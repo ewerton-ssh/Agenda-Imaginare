@@ -155,6 +155,39 @@
   color: var(--green);
 }
 
+@media (max-width: 700px) {
+  .cal-wrap {
+    min-width: 720px;
+  }
+
+  .month-week-row {
+    min-height: 94px;
+  }
+
+  .month-cell {
+    padding: 4px 3px 6px;
+  }
+
+  .month-grid-events {
+    gap: 2px;
+    padding-inline: 2px;
+  }
+
+  .svc-mini {
+    padding: 3px 4px;
+    font-size: 9px;
+  }
+
+  .week-row {
+    min-height: 120px;
+  }
+
+  .week-grid-events {
+    gap: 4px;
+    padding-inline: 3px;
+  }
+}
+
 .svc-mini.concluido-m {
   background: rgba(10, 140, 90, 0.22) !important;
   border-left-color: var(--green) !important;

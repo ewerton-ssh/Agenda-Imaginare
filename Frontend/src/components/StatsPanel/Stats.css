@@ -56,3 +56,22 @@
 .sc-n.rd {
   color: #f87171;
 }
+
+@media (max-width: 480px) {
+  .stats {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .sc {
+    padding: 11px 10px;
+  }
+
+  .sc-n {
+    font-size: 25px;
+  }
+
+  .sc-l {
+    font-size: 9px;
+  }
+}

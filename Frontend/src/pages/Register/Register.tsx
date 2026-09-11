@@ -26,7 +26,7 @@ export default function Register() {
     }
 
     return (
-        <div className="register">
+        <div className="register register-page">
             <main className='register-container'>
                 <div className="register-card glass">
 

@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./Backend
+    container_name: Setor7_backend
+    restart: always
+    volumes:
+      - uploads_imaginare:/app/uploads
+    depends_on:
+      - mongodb
+
+  frontend:
+    build: ./Frontend
+    container_name: Setor7_frontend
+    restart: always
+    depends_on:
+      - backend
+
+volumes:
+  uploads_imaginare:

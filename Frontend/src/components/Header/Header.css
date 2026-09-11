@@ -260,3 +260,89 @@
 .menu-item.danger:hover {
   background: var(--bg-hover);
 }
+
+@media (max-width: 900px) {
+  .header {
+    padding: 14px 18px;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .header-right {
+    flex: 1;
+    flex-wrap: wrap;
+  }
+
+  .month-container {
+    order: -1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 14px;
+  }
+
+  .brand-block {
+    align-items: center;
+  }
+
+  .header img {
+    height: 52px;
+  }
+
+  .header-right {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "month month month"
+      "view theme menu";
+    gap: 6px;
+  }
+
+  .month-container {
+    grid-area: month;
+    padding: 0;
+  }
+
+  .month-label {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .theme-toggle {
+    grid-area: theme;
+    width: auto;
+    padding: 8px 10px;
+  }
+
+  .theme-toggle span {
+    display: none;
+  }
+
+  .view-toggle {
+    grid-area: view;
+    justify-content: stretch;
+  }
+
+  .vt-btn {
+    flex: 1;
+    justify-content: center;
+    padding-inline: 8px;
+  }
+
+  .btn-novo {
+    grid-area: add;
+    justify-content: center;
+  }
+
+  .menu-wrapper {
+    grid-area: menu;
+  }
+}

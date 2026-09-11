@@ -42,6 +42,23 @@
   gap: 6px;
 }
 
+@media (max-width: 700px) {
+  .weather-panel {
+    padding: 12px;
+  }
+
+  .weather-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .weather-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .wcard {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(105, 105, 105, 0.07);

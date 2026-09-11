@@ -15,7 +15,7 @@ export default function Login() {
   }
 
   return (
-    <div className="login">
+    <div className="login login-page">
       <main className='login-container'>
         <div className="login-card glass">
           <img src={logo} alt="Logo" className="login-logo" />

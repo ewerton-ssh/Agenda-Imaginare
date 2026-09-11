@@ -162,3 +162,47 @@
 .back-btn:active {
     transform: scale(.97);
 }
+
+@media (max-width: 700px) {
+    .users-header {
+        padding: 16px;
+    }
+
+    .users-row {
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 12px;
+        padding: 10px 16px;
+    }
+
+    .users-row-header {
+        display: none;
+    }
+
+    .user-email {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .user-admin,
+    .user-actions {
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    .users-title {
+        gap: 10px;
+    }
+
+    .users-header h1 {
+        font-size: 20px;
+    }
+
+    .users-row {
+        gap: 8px;
+        padding-inline: 12px;
+    }
+}

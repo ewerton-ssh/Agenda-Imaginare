@@ -11,6 +11,33 @@ body {
   box-sizing: border-box;
 }
 
+
+@media (max-width: 700px) {
+  body {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  #root,
+  .outside {
+    width: 100%;
+  }
+
+  html,
+  body,
+  .view-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  .view-container::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
 button,
 input,
 select,

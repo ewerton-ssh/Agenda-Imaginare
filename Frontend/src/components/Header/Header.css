@@ -296,16 +296,17 @@
 
   .header-right {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
     grid-template-areas:
-      "month month month"
-      "view theme menu";
+      "month month month month"
+      "view add theme menu";
     gap: 6px;
   }
 
   .month-container {
     grid-area: month;
     padding: 0;
+    width: 100%;
   }
 
   .month-label {
@@ -339,7 +340,19 @@
 
   .btn-novo {
     grid-area: add;
+    width: 34px;
+    height: 34px;
+    padding: 0;
     justify-content: center;
+    gap: 0;
+  }
+
+  .btn-novo i {
+    margin: 0;
+  }
+
+  .btn-novo {
+    font-size: 0;
   }
 
   .menu-wrapper {

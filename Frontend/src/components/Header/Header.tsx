@@ -81,7 +81,7 @@ export default function Header({ monthLabel, viewMode, theme, onPrev, onNext, on
           </button>
         </div>
         {isAuthenticated && userData?.admin &&
-          <button className="btn-novo" type="button" onClick={onAdd}>
+          <button className="btn-novo" type="button" onClick={onAdd} aria-label="Novo Agendamento" title="Novo Agendamento">
             <i className="ti ti-plus" /> Novo Agendamento
           </button>
         }

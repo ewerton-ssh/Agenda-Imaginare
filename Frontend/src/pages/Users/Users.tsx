@@ -139,6 +139,7 @@ export default function Users() {
                                 </div>
 
                                 <div className="user-admin">
+                                    <span className="user-admin-label">Admin</span>
                                     <input
                                         type="checkbox"
                                         checked={user.admin}

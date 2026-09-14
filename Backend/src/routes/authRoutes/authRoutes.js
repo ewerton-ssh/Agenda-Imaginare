@@ -68,14 +68,14 @@ function setAuthCookies(res, accessToken, refreshToken) {
   res.cookie("access_token", accessToken, {
     httpOnly: true,
     secure,
-    sameSite: "lax",
+    sameSite: "none",
     maxAge: ACCESS_EXPIRES * 1000,
   });
 
   res.cookie("refresh_token", refreshToken, {
     httpOnly: true,
     secure,
-    sameSite: "lax",
+    sameSite: "none",
     maxAge: REFRESH_EXPIRES * 1000,
   });
 }
@@ -234,7 +234,7 @@ router.post("/refresh", async (req, res) => {
     res.cookie("access_token", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      sameSite: "none",
       maxAge: ACCESS_EXPIRES * 1000,
     });
 
